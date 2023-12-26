@@ -13,13 +13,15 @@ const TasksSlice = createSlice({
     reducers: {
         addTask: (state, action: PayloadAction<Task>) => {
             state.Tasks.push({title: action.payload.title, isComplete: false}) 
-            console.log('tasks', state.Tasks);
-            
+                    
+        },
+        deleteTask: (state, action: PayloadAction<Task>) => {
+             state.Tasks =  state.Tasks.filter(task => ( task.title !== action.payload.title)) 
         }
         
     }
 })
 
-export const {addTask} = TasksSlice.actions
+export const {addTask, deleteTask} = TasksSlice.actions
 export const selectAllTasks = (state: RootState) => state.AddTaskReducer.Tasks
 export default TasksSlice.reducer

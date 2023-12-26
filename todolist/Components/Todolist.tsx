@@ -7,7 +7,6 @@ import SingleTodo from "./SingleTodo";
 
 const Todolist = () => {
   const todos = useSelector(selectAllTasks)
-  console.log(todos);
   
   return <div className="flex flex-col gap-4">
     {todos.map((todo, index) => (
